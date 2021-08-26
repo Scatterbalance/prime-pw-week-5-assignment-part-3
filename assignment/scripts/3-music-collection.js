@@ -5,20 +5,27 @@ let collection = [];
 
 function addToCollection(title, artist, yearPublished) {
     let album = {
-        title: title,
-        artist: artist,
+        title,
+        artist,
         yearPublished,
     }// end album
 collection.push (album)
-console.log(album);
 
-return 'new album added:' + album
+
+return album
 }//end function
 
-addToCollection('slippery when wet', 'Bon Jovi', 1987)
-addToCollection('Graceland', 'Paul Simon', 1987)
-addToCollection('Licensed To Ill', '1987', 1987)
-addToCollection('The Joshua Tree', 'U2', 1987)        
-
-
+console.log(addToCollection('Duluth', 'Trampled By Turtles', 1987));
+console.log(addToCollection('Palomino', 'Trampled By Turtles', 2010));
+console.log(addToCollection('Licensed To Ill', 'Beasty Boys', 1986));
+console.log(addToCollection('Californication', 'Red Hot Chili Peppers', 1999));        
+console.log(addToCollection('Enema of the State', 'Blink 182', 1999));
+console.log(addToCollection('Dua Lipa', 'Dua Lipa', 1999));
 console.log(collection);
+
+function showCollection(array) {
+    console.log('There are', array.length + 1, 'albums in the collection.');
+    
+    
+}
+showCollection(collection)
