@@ -4,6 +4,28 @@ console.log('***** Music Collection *****')
 let collection = [];
 
 
+// Test the addToCollection function:
+
+// Add 6 albums to your collection. Aim to have a mix of both same and different 
+// artists and published years. (Feel free to share your musical interests, or make stuff up. Totally fine either way.)
+// Console.log each album as added using the returned value.
+// After all are added, console.log the collection array.
+console.log(addToCollection('Duluth', 'Trampled By Turtles', 1987));
+console.log(addToCollection('Palomino', 'Trampled By Turtles', 2010));
+console.log(addToCollection('Licensed To Ill', 'Beasty Boys', 1986));
+console.log(addToCollection('Californication', 'Red Hot Chili Peppers', 1999));        
+console.log(addToCollection('Enema of the State', 'Blink 182', 1999));
+console.log(addToCollection('Dua Lipa', 'Dua Lipa', 1999));
+console.log(collection);
+
+// Test showCollection
+showCollection(collection) 
+
+// Test findByArtist
+findByArtist ('Trampled By Turtles')
+
+
+//////////////////////////FUNCTIONS///////////////////////////
 // Add a function named addToCollection. This function should:
 function addToCollection(title, artist, yearPublished) {
     let album = {
@@ -20,20 +42,24 @@ collection.push (album)
 return album
 }//end function
 
-// Test the addToCollection function:
+function findByArtist(artist) {
+    let results = [];
+    for (i = 0; i < collection.length; i++) {
+        if (artist === collection[i].artist){
+            results.push(collection[i]);
 
-// Add 6 albums to your collection. Aim to have a mix of both same and different 
-// artists and published years. (Feel free to share your musical interests, or make stuff up. Totally fine either way.)
-// Console.log each album as added using the returned value.
-// After all are added, console.log the collection array.
-console.log(addToCollection('Duluth', 'Trampled By Turtles', 1987));
-console.log(addToCollection('Palomino', 'Trampled By Turtles', 2010));
-console.log(addToCollection('Licensed To Ill', 'Beasty Boys', 1986));
-console.log(addToCollection('Californication', 'Red Hot Chili Peppers', 1999));        
-console.log(addToCollection('Enema of the State', 'Blink 182', 1999));
-console.log(addToCollection('Dua Lipa', 'Dua Lipa', 1999));
-console.log(collection);
 
+        } //end if
+    
+
+    } // end for
+    console.log('Artist matches:');
+    for (let i = 0; i < results.length; i++) {
+        console.log('Artist:', results[i].artist, 'Title:', results[i].title, 'Year published:', results[i].yearPublished);
+        
+    }
+    return results
+} // end findByArtist
 
 // Add a function named showCollection. This function should:
 function showCollection(array) {
@@ -48,19 +74,10 @@ function showCollection(array) {
 
 
 } // end showCollection
+//test findByArtist
 
-// Test showCollection
-showCollection(collection) 
-let results = [];
-function findByArtist(artist) {
-    for (i = 0; i < collection.length; i++) {
-        if (artist === collection[i].artist){
-            results.push(collection[i]);
 
-        } //end 
 
-    } // end for
-    return results
-} // end findByArtist
-findByArtist ('Dua Lipa')
-console.log('Matched Results:', results);
+function search() {
+    
+}
