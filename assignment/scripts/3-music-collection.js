@@ -48,8 +48,19 @@ function showCollection(array) {
 
 
 } // end showCollection
-showCollection(collection) 
 
+// Test showCollection
+showCollection(collection) 
+let results = [];
 function findByArtist(artist) {
-    
-}
+    for (i = 0; i < collection.length; i++) {
+        if (artist === collection[i].artist){
+            results.push(collection[i]);
+
+        } //end 
+
+    } // end for
+    return results
+} // end findByArtist
+findByArtist ('Dua Lipa')
+console.log('Matched Results:', results);
