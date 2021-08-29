@@ -26,6 +26,8 @@ showCollection(collection)
 // Test findByArtist
 findByArtist ('Trampled By Turtles')
 
+// Test Search
+search();
 
 //////////////////////////FUNCTIONS///////////////////////////
 // Add a function named addToCollection. This function should:
@@ -34,7 +36,9 @@ function addToCollection(title, artist, yearPublished) {
         title,
         artist,
         yearPublished,
+        
     }// end album
+    
 collection.push (album)
 // Take in the album's title, artist, yearPublished as input parameters
 // Create a new object having the above properties
@@ -64,7 +68,7 @@ function findByArtist(artist) {
 
 // Add a function named showCollection. This function should:
 function showCollection(array) {
-    console.log('There are', array.length + 1, 'albums in the collection.');
+    console.log('There are', array.length, 'albums in the collection.');
     for (let i=0; i < array.length; i++) {
         console.log(array[i].title, 'by', array[i].artist + ', published in', array[i].yearPublished);
 
@@ -80,6 +84,7 @@ function showCollection(array) {
 
 
 function search() {
+    
     let checkArtist = prompt( 'what artists are you looking for?');
     let checkYearPublished = parseInt(prompt( 'what year was it published?'),10);
     let searchResults = [];
@@ -93,25 +98,29 @@ for (i = 0; i < collection.length; i++) {
             //pushing object into array
             searchResults.push(collection[i])
             console.log('if statement');
-        
-        }
+            
+            //displaying matches
+            console.log('Artist matches:');
+            for (let i = 0; i < searchResults.length; i++) {
+                console.log('Artist:', searchResults[i].artist, 'Title:', searchResults[i].title, 'Year published:', searchResults[i].yearPublished);  
+            } // end for
+        } // end if
         
     }// end for
-    console.log('length of input:', checkArtist.length);
 
-    //displaying matches
-    console.log('Artist matches:');
-    for (let i = 0; i < searchResults.length; i++) {
-    console.log('Artist:', searchResults[i].artist, 'Title:', searchResults[i].title, 'Year published:', searchResults[i].yearPublished);  
-    } // end for
-
+if (checkArtist === '' || checkYearPublished === NaN || checkArtist === null) {
+    showCollection (collection)
+} // end if
 
 // adding non match from search to collection if user wants to
-if (searchResults.length === 0 && confirm('No match found, would you like to add it to collection?') === true){
+else if (searchResults.length === 0 && confirm('No match found, would you like to add it to collection?') === true){
     let newTitle = prompt ('what is the title of album you were looking for?')
     addToCollection(newTitle, checkArtist, checkYearPublished);
     showCollection(collection);
-}//end if
+}//end  else if
+else {
+    showCollection(collection);
+} // end else
 
    return searchResults
 } // end search
